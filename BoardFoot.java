@@ -26,36 +26,42 @@ final class BoardFoot {
         throw new IllegalStateException("Cannot be instantiated");
     }
 
-    public static double lengthCalculation(double wide, double high) {
-         double lengtth;
-         lengtth = 144 / (wide * high);
-         return lengtth;
-}
     /**
-    * BoardFoot program.
-    * Asks for width and height, tells what length will be.
+    * Function for length calculation.
+    *
+    * @param wide this is the param for width.
+    * @param high this is the param for height.
+    *
+    * @return length
+    */
+    public static double lengthCalculation(double wide, double high) {
+        final double lengtth = 144 / (wide * high);
+        return lengtth;
+    }
+    /**
+    * The starting main() function.
+    *
+    * @param args No args will be used
     */
 
     public static void main(final String[] args) {
         double width = 0;
         double height = 0;
-        System.out.print("This program calculates the length of a wooden " +
-                         "board that is 1 board foot in dimension (144 inches³ of wood.) ");
+        System.out.print("This program calculates the length of a wooden "
+                         + "board that is 1 board foot in dimension (144 inches³ of wood.) ");
         final Scanner input = new Scanner(System.in);
         System.out.print("\nEnter the width(inch): ");
         try {
             width = input.nextDouble();
             System.out.print("Enter the height(inch): ");
             height = input.nextDouble();
-        } catch(java.util.InputMismatchException errorCode) {
+        } catch (java.util.InputMismatchException errorCode) {
             System.out.print("Something wasn't correct.");
-            System.out.print("\nDone.");
             System.exit(0);
         }
-        double length = lengthCalculation(width, height);
+        final double length = lengthCalculation(width, height);
         System.out.print("The board will be " + length + " inches long.");
-
         System.out.print("\nDone.");
         System.out.print("\n ");
-}
+    }
 }
